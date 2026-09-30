@@ -34,3 +34,29 @@ Monitoring surface water pollution manually using drones is time-consuming. This
 
 ---
 
+## 🚀 How to Run & Test the Pipeline
+
+Follow these simple instructions to test the dual-model water detection and pollution classification pipeline:
+
+### **Step 1: Download Pre-Trained Model Weights**
+Download both model files from Google Drive and upload/save them directly to your Google Drive root folder:
+* **Drone Video Segmentation Model (SlowFast / 3D CNN):** [Download Model 1 (.pth)](https://drive.google.com/file/d/1ejBV1iYLA-iML6JOT8Ndku0mlE2xmzyx/view?usp=sharing)
+* **Water Pollution Classification Model (ConvNeXt-Tiny):** [Download Model 2 (.h5)](https://drive.google.com/file/d/1HDwtuHd6PZD40OdUyTMs3fCNpHSzZLjN/view?usp=sharing)
+
+---
+
+### **Step 2: Execution via Google Colab**
+1. Open the testing notebook in Google Colab: **`Water_detect_and_pollutiondetect.ipynb`**
+2. Mount your Google Drive to load the saved `.pth` and `.h5` model files.
+3. Run **Cell 1** to initialize and load both deep learning models.
+4. Upload any target sample drone video (in `.mp4` format) to the Colab workspace.
+5. Run **Cell 3 (Pipeline Execution)** by providing the uploaded video path.
+
+---
+
+### **Step 3: Automated Pipeline Workflow**
+Once executed, you can observe the real-time pipeline in action:
+* **Stage 1 Output:** Model 1 scans 16 temporal video frames to confirm `WATER DETECTED` or `NO WATER DETECTED`.
+* **Stage 2 Output:** If water is detected, the pipeline automatically extracts localized keyframes, zooms into the water surface, and passes them to Model 2.
+* **Final Output:** Predicts the exact contaminant category (`algal_blooms`, `chemical`, `clean_water`, `foam`, `plastic`, or `sediment`).
+
