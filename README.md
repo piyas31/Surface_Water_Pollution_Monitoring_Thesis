@@ -34,6 +34,24 @@ Monitoring surface water pollution manually using drones is time-consuming. This
 
 ---
 
+### 📊 Comparative Performance Analysis of Evaluated Models
+
+Below is the comparative performance breakdown of different deep learning architectures evaluated on our surface water dataset:
+
+| Architecture | Accuracy | F1-Score | Best Performing Class |
+| :--- | :---: | :---: | :--- |
+| **ConvNeXt** | **98.00%** | **98.00%** | **All classes** |
+| **ResNet50 + CBAM** | 96.49% | 96.00% | Clean Water |
+| **DenseNet121 + CBAM** | 94.74% | 94.00% | Sediment |
+| **MobileNet** | 94.13% | 94.00% | Chemical |
+| **AquaNet (Custom)** | 89.18% | 88.50% | Sediment |
+
+> **Key Findings:** 
+> * **ConvNeXt** achieved the highest overall baseline performance across all pollution categories.
+> * Our lightweight custom architecture, **AquaNet**, achieved **89.18% Accuracy** and **88.50% F1-Score**, providing an optimized model footprint ideal for low-power edge devices and real-time drone operations.
+
+---
+
 ## 🚀 How to Run & Test the Pipeline
 
 Follow these simple instructions to test the dual-model water detection and pollution classification pipeline:
